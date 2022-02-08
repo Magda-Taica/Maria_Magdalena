@@ -1,0 +1,50 @@
+﻿@page
+@model Maria_Magdalena.Pages.Angajati.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Angajat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Angajat.ID" />
+            <div class="form-group">
+                <label asp-for="Angajat.numeangajat" class="control-label"></label>
+                <input asp-for="Angajat.numeangajat" class="form-control" />
+                <span asp-validation-for="Angajat.numeangajat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.post" class="control-label"></label>
+                <input asp-for="Angajat.post" class="form-control" />
+                <span asp-validation-for="Angajat.post" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.ManagerID" class="control-label"></label>
+                <select asp-for="Angajat.ManagerID" class="form-control" asp-items="ViewBag.ManagerID"></select>
+                <span asp-validation-for="Angajat.ManagerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.DepartamentID" class="control-label"></label>
+                <select asp-for="Angajat.DepartamentID" class="form-control" asp-items="ViewBag.DepartamentID"></select>
+                <span asp-validation-for="Angajat.DepartamentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
